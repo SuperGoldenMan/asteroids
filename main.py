@@ -45,10 +45,6 @@ async def main():
     start_time = pygame.time.get_ticks()
     last_point_time = start_time  # Track when we last awarded a point
     score = 0
-    # Load background image
-    background = pygame.image.load("assets/game-background.jpeg").convert()
-    # Scale it to fit screen if needed
-    background = pygame.transform.scale(background, (SCREEN_WIDTH, SCREEN_HEIGHT))
 
     # create groups
     updatable = pygame.sprite.Group()
@@ -84,7 +80,7 @@ async def main():
                 return
                 
     #draw the black screen
-        screen.blit(background, (0, 0))
+        screen.fill((0, 0, 0))
 
     
         if game_state == "START":
