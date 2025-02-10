@@ -42,16 +42,16 @@ class Player(CircleShape):
         if keys[pygame.K_SPACE]:
             self.shoot()
 
-    # Apply acceleration to velocity
+        # Apply acceleration to velocity
         self.velocity += self.acceleration * dt
-    # Apply friction
+        # Apply friction
         self.velocity *= self.friction
-    # Limit speed
+        # Limit speed
         if self.velocity.length() > self.max_speed:
             self.velocity.scale_to_length(self.max_speed)
-    # Update position based on velocity
+        # Update position based on velocity
         self.position += self.velocity * dt
-    # Wrap position around screen
+        # Wrap position around screen
         self.wrap_position()
 
     def shoot(self):
@@ -71,13 +71,13 @@ class Player(CircleShape):
         else:  # Braking (S key)
             self.acceleration = -self.velocity * 2  # This will brake in the opposite direction of current movement
 
-# Screen Wrapping
+    # Screen Wrapping
     def wrap_position(self):
         if self.position.x < 0:
             self.position.x = SCREEN_WIDTH
         elif self.position.x > SCREEN_WIDTH:
             self.position.x = 0
-            
+
         if self.position.y < 0:
             self.position.y = SCREEN_HEIGHT
         elif self.position.y > SCREEN_HEIGHT:
